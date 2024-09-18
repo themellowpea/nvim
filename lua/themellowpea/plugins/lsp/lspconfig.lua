@@ -27,7 +27,10 @@ M.config = function()
 		"eslint",
 		"sqlls",
 		"tailwindcss",
+		"jdtls",
 	}
+
+	require("java").setup()
 
 	local signs = {
 		Error = icons.diagnostics.Error,
@@ -101,6 +104,10 @@ M.config = function()
 
 		if server == "lua_ls" then
 			require("neodev").setup({})
+		end
+
+		if server == "jdtls" then
+			lspconfig["jdtls"].setup({})
 		end
 
 		lspconfig[server].setup(opts)
