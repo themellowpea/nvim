@@ -44,12 +44,12 @@ M.config = function()
 	local conform = require("conform")
 	conform.setup(opts)
 
-	vim.keymap.set({ "n", "v" }, "<leader>mp", function()
+	vim.keymap.set({ "n", "v" }, "<leader>F", function()
 		conform.format({
 			lsp_fallback = true,
 			timeout_ms = 500,
 		})
-	end, { desc = "Format file or range (in visual mode)" })
+	end, { desc = "Conform | Format file or range (in visual mode)" })
 end
 
 return M
