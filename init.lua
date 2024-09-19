@@ -1,5 +1,7 @@
 require("themellowpea.launch")
 
+-- NOTE: These are the LAZY_PLUGIN_SPECS
+
 spec("themellowpea.plugins.alpha")
 spec("themellowpea.plugins.autopairs")
 spec("themellowpea.plugins.bufferline")
@@ -42,16 +44,18 @@ spec("themellowpea.plugins.tiny-line-diagnostics")
 spec("themellowpea.plugins.todo-comments")
 spec("themellowpea.plugins.trouble")
 spec("themellowpea.plugins.ts-comments")
-
 spec("themellowpea.plugins.utils")
 spec("themellowpea.plugins.which-key")
-
 spec("themellowpea.plugins.vim-be-good")
+
+-- NOTE: LSP CONFIG
 
 spec("themellowpea.plugins.lsp.lspconfig")
 spec("themellowpea.plugins.lsp.lsplens")
 spec("themellowpea.plugins.lsp.lspsaga")
 spec("themellowpea.plugins.lsp.mason")
 spec("themellowpea.plugins.lsp.typescript-tools")
+
+-- NOTE: Lazy loads last
 
 require("themellowpea.lazy")
