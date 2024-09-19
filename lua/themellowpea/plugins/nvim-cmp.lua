@@ -4,35 +4,30 @@ local M = {
 	event = "InsertEnter",
 	dependencies = {
 		-- AI Autocomplete
-		{
-			"Exafunction/codeium.nvim",
-			enabled = false,
-			opts = {
-				enable_chat = true,
-			},
-		},
-
-		{
-			"supermaven-inc/supermaven-nvim",
-			-- commit = "df3ecf7",
-			event = "BufReadPost",
-			opts = {
-				disable_keymaps = false,
-				disable_inline_completion = false,
-				keymaps = {
-					accept_suggestion = "<C-;>",
-					clear_suggestion = "<C-e>",
-					accept_word = "<C-y>",
-				},
-			},
-		},
+		-- {
+		-- 	"Exafunction/codeium.nvim",
+		-- 	enabled = false,
+		-- 	opts = {
+		-- 		enable_chat = true,
+		-- 	},
+		-- },
+		--
+		-- {
+		-- 	"supermaven-inc/supermaven-nvim",
+		-- 	event = "BufReadPost",
+		-- 	opts = {
+		-- 		disable_keymaps = false,
+		-- 		disable_inline_completion = false,
+		-- 		keymaps = {
+		-- 			accept_suggestion = "<C-;>",
+		-- 			clear_suggestion = "<C-e>",
+		-- 			accept_word = "<C-y>",
+		-- 		},
+		-- 	},
+		-- },
 
 		{
 			"hrsh7th/cmp-nvim-lsp",
-			event = "InsertEnter",
-		},
-		{
-			"hrsh7th/cmp-emoji",
 			event = "InsertEnter",
 		},
 		{
@@ -47,6 +42,16 @@ local M = {
 			"hrsh7th/cmp-cmdline",
 			event = "CmdlineEnter",
 		},
+		-- {
+		-- 	"hrsh7th/cmp-nvim-lua",
+		-- 	event = "InsertEnter",
+		-- },
+
+		{
+			"hrsh7th/cmp-emoji",
+			event = "InsertEnter",
+		},
+
 		{
 			"saadparwaiz1/cmp_luasnip",
 			event = "InsertEnter",
@@ -58,15 +63,9 @@ local M = {
 				"rafamadriz/friendly-snippets",
 			},
 		},
-		{
-			"hrsh7th/cmp-nvim-lua",
-		},
+
 		{
 			"onsails/lspkind.nvim", -- vs-code like pictograms
-			event = "InsertEnter",
-		},
-		{
-			"saadparwaiz1/cmp_luasnip", -- for autocompletion
 			event = "InsertEnter",
 		},
 	},
@@ -108,7 +107,7 @@ function M.config()
 			}),
 			-- Accept currently selected item. If none selected, `select` first item.
 			-- Set `select` to `false` to only confirm explicitly selected items.
-			["<CR>"] = cmp.mapping.confirm({ select = true }),
+			["<CR>"] = cmp.mapping.confirm({ select = false }),
 			["<Tab>"] = cmp.mapping(function(fallback)
 				if cmp.visible() then
 					cmp.select_next_item()
@@ -169,9 +168,9 @@ function M.config()
 		sources = {
 			{ name = "nvim_lsp" },
 			{ name = "luasnip" },
-			{ name = "supermaven" },
+			-- { name = "supermaven" },
 			{ name = "cmp_tabnine" },
-			{ name = "nvim_lua" },
+			-- { name = "nvim_lua" },
 			{ name = "buffer" },
 			{ name = "path" },
 			{ name = "calc" },
