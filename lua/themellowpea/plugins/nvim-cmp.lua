@@ -42,10 +42,10 @@ local M = {
 			"hrsh7th/cmp-cmdline",
 			event = "CmdlineEnter",
 		},
-		-- {
-		-- 	"hrsh7th/cmp-nvim-lua",
-		-- 	event = "InsertEnter",
-		-- },
+		{
+			"hrsh7th/cmp-nvim-lua",
+			event = "InsertEnter",
+		},
 
 		{
 			"hrsh7th/cmp-emoji",
@@ -170,7 +170,7 @@ function M.config()
 			{ name = "luasnip" },
 			-- { name = "supermaven" },
 			{ name = "cmp_tabnine" },
-			-- { name = "nvim_lua" },
+			{ name = "nvim_lua" },
 			{ name = "buffer" },
 			{ name = "path" },
 			{ name = "calc" },
