@@ -2,6 +2,7 @@
 
 local M = {
 	"nvim-java/nvim-java",
+	ft = { "java" },
 }
 
 return M

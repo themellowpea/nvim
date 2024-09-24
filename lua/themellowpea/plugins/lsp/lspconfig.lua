@@ -4,34 +4,19 @@ local M = {
 	dependencies = {
 		{
 			"folke/neodev.nvim",
+			ft = { "lua" },
 		},
 	},
-	cmd = "LSPInfo",
+	cmd = { "LspInfo", "LspInstall", "LspStart" },
 }
 
-M.config = function()
-	local lspconfig = require("lspconfig")
-	local icons = require("themellowpea.utils.icons")
-	local on_attach = require("themellowpea.plugins.lsp.opts").on_attach
-	local on_init = require("themellowpea.plugins.lsp.opts").on_init
-	local capabilities = require("themellowpea.plugins.lsp.opts").capabilities
-	local servers = {
-		"lua_ls",
-		"cssls",
-		"html",
-		"pyright",
-		"bashls",
-		"jsonls",
-		"gopls",
-		"ts_ls",
-		"eslint",
-		"sqlls",
-		"tailwindcss",
-		"jdtls",
-	}
+local icons = require("themellowpea.utils.icons")
+local on_init = require("themellowpea.plugins.lsp.opts").on_init
+local capabilities = require("themellowpea.plugins.lsp.opts").capabilities
 
-	require("java").setup()
-
+local lsp_keymaps = require("themellowpea.plugins.lsp.opts").lsp_keymaps
+local lsp_highlight = require("themellowpea.plugins.lsp.opts").lsp_highlight
+local on_attach = function(client, bufnr)
 	local signs = {
 		Error = icons.diagnostics.Error,
 		Warn = icons.diagnostics.Warning,
@@ -83,7 +68,34 @@ M.config = function()
 		default_diagnostic_config.signs = { active = signs }
 	end
 
+	-- Set diagnostics and keymaps only if they are not already set
+	if not vim.b[bufnr].lsp_keymaps_set then
+		lsp_keymaps(bufnr)
+		vim.b[bufnr].lsp_keymaps_set = true
+	end
+
+	lsp_highlight(client, bufnr)
 	vim.diagnostic.config(default_diagnostic_config)
+end
+
+M.config = function()
+	local lspconfig = require("lspconfig")
+	local servers = {
+		"lua_ls",
+		"cssls",
+		"html",
+		"pyright",
+		"bashls",
+		"jsonls",
+		"gopls",
+		"ts_ls",
+		"eslint",
+		"sqlls",
+		"tailwindcss",
+		"jdtls",
+	}
+
+	require("java").setup()
 
 	vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" })
 	vim.lsp.handlers["textDocument/signatureHelp"] =

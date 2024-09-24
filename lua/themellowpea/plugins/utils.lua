@@ -11,14 +11,14 @@ return {
 		cmd = { "Bdelete", "Bwipeout" },
 	},
 	-- Add Luarocks support for lazy.nvim
-	{
-		"vhyrro/luarocks.nvim",
-		priority = 1001,
-		config = true,
-		opts = {
-			rocks = {
-				"magick",
-			},
-		},
-	},
+	-- {
+	-- 	"vhyrro/luarocks.nvim",
+	-- 	priority = 1001,
+	-- 	event = "VeryLazy",
+	-- 	opts = {
+	-- 		rocks = {
+	-- 			"magick",
+	-- 		},
+	-- 	},
+	-- },
 }

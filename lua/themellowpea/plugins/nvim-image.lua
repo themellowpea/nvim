@@ -1,5 +1,7 @@
 local M = {
 	"3rd/image.nvim",
+	ft = { "markdown" },
+	event = "VeryLazy",
 }
 
 M.config = function()
