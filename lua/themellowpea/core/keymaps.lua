@@ -48,9 +48,6 @@ vim.keymap.set("n", "<leader>y", "<cmd>%y+<cr>", { desc = "General | Yank All Te
 -- Quit
 vim.keymap.set("n", "<leader>q", "<cmd>qa!<cr>", { desc = "General | Quit", silent = true })
 
--- Close Buffer
-vim.keymap.set("n", "<leader>c", "<cmd>Bdelete!<cr>", { desc = "General | Close Buffer", silent = true })
-
 -- Toggle Tabufline
 vim.keymap.set("n", "<leader>ob", function()
 	if vim.o.showtabline == 2 then
