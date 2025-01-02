@@ -95,7 +95,17 @@ M.config = function()
 		"jdtls",
 	}
 
-	require("java").setup()
+	require("java").setup({
+		spring_boot_tools = {
+			enable = true,
+			version = "1.59.0",
+		},
+		-- load java test plugins
+		java_test = {
+			enable = true,
+			version = "0.43.0",
+		},
+	})
 
 	vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" })
 	vim.lsp.handlers["textDocument/signatureHelp"] =

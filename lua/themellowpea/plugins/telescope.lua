@@ -3,7 +3,6 @@ local M = {
 	"nvim-telescope/telescope.nvim",
 	branch = "0.1.x",
 	dependencies = { { "nvim-telescope/telescope-fzf-native.nvim", build = "make" } },
-	cmd = "Telescope",
 }
 
 M.config = function()
@@ -12,6 +11,8 @@ M.config = function()
 
 	telescope.setup({
 		defaults = {
+			-- Use fd or find to show dotfiles
+			find_command = { "fd", "--type", "f", "--hidden", "--follow", "--exclude", ".git" }, -- `fd` example, or change for `rg`
 			path_display = { "smart" },
 			mappings = {
 				i = {
@@ -19,6 +20,11 @@ M.config = function()
 					["<C-j>"] = actions.move_selection_next, -- move to next result
 					["<C-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
 				},
+			},
+		},
+		pickers = {
+			find_files = {
+				hidden = true, -- Show hidden files (dotfiles)
 			},
 		},
 	})
