@@ -6,3 +6,20 @@
 --
 -- Or remove existing autocmds by their group name (which is prefixed with `lazyvim_` for the defaults)
 -- e.g. vim.api.nvim_del_augroup_by_name("lazyvim_wrap_spell")
+
+local autocmd = vim.api.nvim_create_autocmd
+local augroup = vim.api.nvim_create_augroup
+
+-- General Settings
+local general = augroup("General", { clear = true })
+
+autocmd({ "FocusLost", "BufLeave", "BufWinLeave", "InsertLeave" }, {
+  -- nested = true, -- for format on save
+  callback = function()
+    if vim.bo.filetype ~= "" and vim.bo.buftype == "" then
+      vim.cmd("silent! w")
+    end
+  end,
+  group = general,
+  desc = "Auto Save",
+})
