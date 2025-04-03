@@ -13,6 +13,7 @@ return {
     },
     integrations = {
       alpha = true,
+      blink_cmp = true,
       bufferline = true,
       cmp = true,
       dap = true,
