@@ -13,13 +13,13 @@ local augroup = vim.api.nvim_create_augroup
 -- General Settings
 local general = augroup("General", { clear = true })
 
-autocmd({ "FocusLost", "BufLeave", "BufWinLeave", "InsertLeave" }, {
-  -- nested = true, -- for format on save
-  callback = function()
-    if vim.bo.filetype ~= "" and vim.bo.buftype == "" then
-      vim.cmd("silent! w")
-    end
-  end,
-  group = general,
-  desc = "Auto Save",
-})
+-- autocmd({ "FocusLost", "BufLeave", "BufWinLeave", "InsertLeave" }, {
+--   nested = true, -- for format on save
+--   callback = function()
+--     if vim.bo.filetype ~= "" and vim.bo.buftype == "" then
+--       vim.cmd("silent! w")
+--     end
+--   end,
+--   group = general,
+--   desc = "Auto Save",
+-- })

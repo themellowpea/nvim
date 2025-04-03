@@ -11,4 +11,4 @@ map.set("n", "<leader>R", "<cmd>%d+<cr>", { desc = "General | Remove All Text", 
 -- Yank All Text
 map.set("n", "<leader>Y", "<cmd>%y+<cr>", { desc = "General | Yank All Text", silent = true })
 -- Quit
-map.set("n", "<leader>qQ", "<cmd>qa!<cr>", { desc = "General | Quit", silent = true })
+map.set("n", "<leader>Q", "<cmd>qa!<cr>", { desc = "General | Quit", silent = true })
