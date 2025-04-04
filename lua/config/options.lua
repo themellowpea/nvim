@@ -10,3 +10,5 @@ local opt = vim.opt
 
 -- so that `` is visible in markdown files
 opt.conceallevel = 1
+
+vim.g.lazyvim_blink_main = false
