@@ -19,7 +19,7 @@ local M = {
   },
 }
 M.opts = {
-  conceallevel = 1,
+  conceallevel = 2,
   workspaces = {
     {
       name = "themellowpea_1_0",
@@ -63,6 +63,10 @@ M.opts = {
     local path = spec.dir / tostring(spec.title)
     return path:with_suffix(".md")
   end,
+
+  ui = {
+    enable = false,
+  },
 }
 
 return M
