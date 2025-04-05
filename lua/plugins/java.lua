@@ -21,6 +21,11 @@ return {
             jdtls = {
               settings = {
                 java = {
+                  inlayHints = {
+                    parameterNames = {
+                      enabled = "all",
+                    },
+                  },
                   configuration = {
                     runtimes = {
                       {
