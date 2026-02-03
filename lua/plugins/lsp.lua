@@ -2,7 +2,7 @@ return {
   -- Mason
   -- add servers here
   {
-    "williamboman/mason.nvim",
+    "mason-org/mason.nvim",
     opts = function()
       return {
         ensure_installed = {

@@ -16,9 +16,9 @@ return {
     },
 
     opts = {
-      snippets = {
-        preset = "luasnip",
-      },
+      -- snippets = {
+      --   preset = "luasnip",
+      -- },
       keymap = {},
       sources = {
         compat = {
